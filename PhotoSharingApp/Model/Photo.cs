@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace PhotoSharingApp.Model
 {
@@ -21,7 +19,7 @@ namespace PhotoSharingApp.Model
         public String Owner { get; set; }
         public byte[] PhotoFile { get; set; }
         [DataType(DataType.MultilineText)]
-        ICollection<Commentaire> Commentaires { get; set; }
+        ICollection<Comment> Commentaires { get; set; }
         public string ImageMimeType { get; set; }
 
 

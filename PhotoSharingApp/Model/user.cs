@@ -1,6 +1,6 @@
 ﻿namespace PhotoSharingApp.Model
 {
-    public class Commentaire
+    public class user
     {
     }
 }
