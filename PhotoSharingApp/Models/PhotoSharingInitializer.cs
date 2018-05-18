@@ -29,7 +29,7 @@ namespace PhotoSharingApp.Models
             context.SaveChanges();
             List<Comment> comments = new List<Comment>();
             Comment comment = new Comment();
-            comment.PhotosID = 1; comment.User = "dd";
+            comment.PhotosID = 1; comment.UserName = "dd";
             comment.Subject = "Test Comment";
             comment.Body = "This comment should appear in photo 1";
             comments.Add(comment);
@@ -38,6 +38,8 @@ namespace PhotoSharingApp.Models
                 context.Comments.Add(c);
             }
             context.SaveChanges();
-            //base.Seed(context);     
+            base.Seed(context);     
 
         }
+    }
+}

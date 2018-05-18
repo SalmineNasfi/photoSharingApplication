@@ -1,5 +1,5 @@
-﻿using System.Data.Entity;
-using PhotoSharingApp.Controllers;
+﻿using System;
+using System.Data.Entity;
 using PhotoSharingApp.Model;
 namespace PhotoSharingApp.Models
 {
@@ -8,9 +8,7 @@ namespace PhotoSharingApp.Models
 
         public DbSet<Photo> Photos { get; set; }
       
-        public DbSet<Comment> Comments { get; set; }
-       
+        public DbSet <Comment> Comments { get; set; }
 
-
-};
+    };
 }

@@ -9,8 +9,10 @@ namespace PhotoSharingApp.Model
     {
 
         public int PhotoID { get; set; }
+        [Required]
         public String Title { get; set; }
         [DisplayName("Picture")]
+        [DataType(DataType.MultilineText)]
         public String Description { get; set; }
         [DataType(DataType.DateTime)]
         [DisplayName("Created Date")]
@@ -18,7 +20,6 @@ namespace PhotoSharingApp.Model
         public DateTime CreatedDate { get; set; }
         public String Owner { get; set; }
         public byte[] PhotoFile { get; set; }
-        [DataType(DataType.MultilineText)]
         ICollection<Comment> Commentaires { get; set; }
         public string ImageMimeType { get; set; }
         public string UserName { get; internal set; }
