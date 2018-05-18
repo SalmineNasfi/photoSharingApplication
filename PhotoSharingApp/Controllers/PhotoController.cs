@@ -61,6 +61,44 @@ new PhotoSharingContext();
         return RedirectToAction("Index");
 
     }
+
+    public ActionResult Delete(int id)
+    {
+        Photo photo = context.Photos.Find(id);
+        if (photo == null)
+        {
+            return HttpNotFound();
+        }
+        return View("Delete", photo);
+    }
+
+    [HttpPost]
+    [ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        Photo photo =
+   context.Photos.Find(id);
+        context.Photos.Remove(photo);
+        context.SaveChanges();
+        return RedirectToAction("Index");
+    }
+
+    public FileContentResult GetImage
+(int id)
+    {
+        Photo photo =
+   context.Photos.Find(id);
+        if (photo != null)
+        {
+            return File(photo.PhotoFile,
+            photo.ImageMimeType);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 }
 
 
