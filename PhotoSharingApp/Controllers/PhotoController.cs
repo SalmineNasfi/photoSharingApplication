@@ -1,16 +1,66 @@
 ﻿using PhotoSharingApp.Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Collections.Generic;
+using System.Globalization;
+using PhotoSharingApp.Models;
 public class PhotoController : Controller
-{  public ActionResult Index()
 {
-    var photo = new Photo();
-        return View(photo);
-}
-     }
+    private PhotoSharingContext context =
+new PhotoSharingContext();
 
+    public ActionResult Index()
+    {
+        return View("Index",
+    context.Photos.ToList());
+    }
+        public ActionResult Display (int id)
+    {
+        Photo photo =
+   context.Photos.Find(id);
+        if (photo == null)
+        {
+            return HttpNotFound();
+        }
+        return View("Display", photo);
+    }
+    public ActionResult Create()
+    {
+        Photo newPhoto = new Photo();
+        newPhoto.CreatedDate =
+        DateTime.Today;
+        return View("Create", newPhoto);
+    }
+    [HttpPost]
+    public ActionResult Create
+(Photo photo, HttpPostedFileBase image)
+    {
+        photo.CreatedDate = DateTime.Today;
+        if (!ModelState.IsValid)
+        {
+            return View("Create", photo);
+        }
+        else
+        {
+            if (image != null)
+            {
+                photo.ImageMimeType =
+                image.ContentType;
+            }
+}
+
+        photo.PhotoFile = new
+        byte[image.ContentLength];
+        image.InputStream.Read(
+        photo.PhotoFile, 0,
+        image.ContentLength);
+        context.Photos.Add(photo);
+        context.SaveChanges();
+        return RedirectToAction("Index");
+
+    }
+}
 
 
