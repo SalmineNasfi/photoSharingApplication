@@ -21,7 +21,6 @@ namespace PhotoSharingApp.Model
         [DataType(DataType.MultilineText)]
         ICollection<Comment> Commentaires { get; set; }
         public string ImageMimeType { get; set; }
-
-
+        public string UserName { get; internal set; }
     }
 }
