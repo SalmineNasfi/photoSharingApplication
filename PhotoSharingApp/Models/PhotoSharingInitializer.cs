@@ -1,4 +1,5 @@
-﻿using PhotoSharingApp.Models;
+﻿using PhotoSharingApp.Model;
+using PhotoSharingApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace PhotoSharingApp.Model
+namespace PhotoSharingApp.Models
 {
     public class PhotoSharingInitializer : DropCreateDatabaseAlways<PhotoSharingContext>
     {
@@ -19,7 +20,7 @@ namespace PhotoSharingApp.Model
             photo.Owner = "dd";
             photo.PhotoFile = System.IO.File.ReadAllBytes("./../Images/flower.jpg");
             photo.ImageMimeType = "image/jpeg";
-            photo.CreatedDate = new DateTime();
+            photo.CreatedDate = DateTime.Now;
             photos.Add(photo);
             foreach (var p in photos)
             {
