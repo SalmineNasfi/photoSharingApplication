@@ -1,7 +1,6 @@
 ﻿using System.Data.Entity;
 using PhotoSharingApp.Controllers;
 using PhotoSharingApp.Model;
-
 namespace PhotoSharingApp.Models
 {
     public class PhotoSharingContext : DbContext
@@ -9,7 +8,7 @@ namespace PhotoSharingApp.Models
 
         public DbSet<Photo> Photos { get; set; }
       
-        public DbSet<Controllers.Comment> Comments { get; set; }
+        public DbSet<Comment> Comments { get; set; }
        
 
 
