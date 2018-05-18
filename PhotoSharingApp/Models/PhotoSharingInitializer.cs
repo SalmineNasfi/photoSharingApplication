@@ -7,25 +7,22 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
+
 namespace PhotoSharingApp.Models
 {
     public class PhotoSharingInitializer : DropCreateDatabaseAlways<PhotoSharingContext>
     {
         protected override void Seed(PhotoSharingContext context)
         {
-            List<Photo> photos = new List<Photo>();
+         
             Photo photo = new Photo();
             photo.Title = "Test Photo";
             photo.Description = "test";
             photo.Owner = "dd";
-            photo.PhotoFile = System.IO.File.ReadAllBytes("./../Images/flower.jpg");
+            photo.PhotoFile = System.IO.File.ReadAllBytes("C:/Users/ASUS/Pictures/flower.jpg");
             photo.ImageMimeType = "image/jpeg";
             photo.CreatedDate = DateTime.Now;
-            photos.Add(photo);
-            foreach (var p in photos)
-            {
-                context.Photos.Add(p);
-            }
+            context.Photos.Add(photo);
             context.SaveChanges();
             List<Comment> comments = new List<Comment>();
             Comment comment = new Comment();
@@ -37,8 +34,9 @@ namespace PhotoSharingApp.Models
             {
                 context.Comments.Add(c);
             }
+            
             context.SaveChanges();
-            base.Seed(context);     
+           // base.Seed(context);     
 
         }
     }

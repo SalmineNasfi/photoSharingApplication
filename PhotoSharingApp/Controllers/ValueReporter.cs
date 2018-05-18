@@ -11,6 +11,11 @@ namespace PhotoSharingApp.Controllers
     public class ValueReporter : ActionFilterAttribute
 
     {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            base.OnActionExecuting(filterContext);
+            logValues(filterContext.RouteData);
+        }
         private void logValues(RouteData routeData)
         {
             var controller =

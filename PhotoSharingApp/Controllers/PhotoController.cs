@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using System.Globalization;
 using PhotoSharingApp.Models;
+
+
 public class PhotoController : Controller
 {
     private PhotoSharingContext context =
@@ -13,8 +15,7 @@ new PhotoSharingContext();
 
     public ActionResult Index()
     {
-        return View("Index",
-    context.Photos.ToList());
+        return View(context.Photos.First<Photo>());
     }
         public ActionResult Display (int id)
     {
