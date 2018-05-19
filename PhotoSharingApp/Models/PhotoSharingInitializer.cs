@@ -21,7 +21,7 @@ namespace PhotoSharingApp.Models
             photo.Owner = "dd";
             // photo.PhotoFile = System.IO.File.ReadAllBytes("C:/Users/ASUS/Pictures/flower.jpg");
    
-            photo.PhotoFile = File.ReadAllBytes("C:\\c#\\photoSharingApplication\\PhotoSharingApp\\Images\\photo.jpg");
+            photo.PhotoFile = File.ReadAllBytes("C:\\c#\\photoSharingApplication\\PhotoSharingApp\\Images\\photo");
             photo.ImageMimeType = "image/jpeg";
             photo.CreatedDate = DateTime.Now;
             context.Photos.Add(photo);

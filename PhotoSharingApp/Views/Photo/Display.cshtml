@@ -5,9 +5,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Display</h2>
+<title> Photo: @Model.Title </title>
 
 <div>
+    <h2>"@Model.Title"</h2>
+    <img width="800" src="@Url.Action("GetImage", "Photo",
+new { id = Model.PhotoID })"  />
+    <p>
+        @Html.DisplayFor(
+model =>
+model.Description)
+    </p>
+    <p>
+        @Html.DisplayNameFor(
+model => model.CreatedDate):
+        @Html.DisplayFor(
+model => model.CreatedDate)
+    </p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
     <h4>Photo</h4>
     <hr />
     <dl class="dl-horizontal">
