@@ -15,7 +15,7 @@ new PhotoSharingContext();
 
     public ActionResult Index()
     {
-        return View(context.Photos.ToList());
+        return View("Index");
     }
 
     [ChildActionOnly]
