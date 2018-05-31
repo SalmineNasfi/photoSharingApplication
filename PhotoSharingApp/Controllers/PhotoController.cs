@@ -71,8 +71,11 @@ new PhotoSharingContext();
             {
                 photo.ImageMimeType =
                 image.ContentType;
+                photo.PhotoFile = new byte[image.ContentLength];
+                image.InputStream.Read(photo.PhotoFile, 0, image.ContentLength);
             }
-}
+            return RedirectToAction("Index");
+        }
 
         photo.PhotoFile = new
         byte[image.ContentLength];
@@ -81,7 +84,7 @@ new PhotoSharingContext();
         image.ContentLength);
         context.Photos.Add(photo);
         context.SaveChanges();
-        return RedirectToAction("Index");
+        return View("Index");
 
     }
 
@@ -103,7 +106,7 @@ new PhotoSharingContext();
    context.Photos.Find(id);
         context.Photos.Remove(photo);
         context.SaveChanges();
-        return RedirectToAction("Index");
+        return View ("Index");
     }
 
     public FileContentResult GetImage
@@ -113,8 +116,10 @@ new PhotoSharingContext();
    context.Photos.Find(id);
         if (photo != null)
         {
-            return File(photo.PhotoFile,
-            photo.ImageMimeType);
+           /* return File(photo.PhotoFile,
+            photo.ImageMimeType);*/
+
+            return new FileContentResult(photo.PhotoFile, photo.ImageMimeType);
         }
         else
         {
