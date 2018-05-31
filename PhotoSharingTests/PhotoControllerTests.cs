@@ -2,9 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using PhotoSharingApp.Models;
-using PhotoSharingApp.Controllers;
 using PhotoSharingApp.Model;
+using PhotoSharingApp.Controllers;
+
 
 namespace PhotoSharingTests
 {
@@ -36,3 +36,5 @@ namespace PhotoSharingTests
         }
     }
 }
+
+
