@@ -1,0 +1,1 @@
+C:\c#\photoSharingApplication\PhotoSharingTests\obj\Debug\PhotoSharingTests.csprojResolveAssemblyReference.cache
